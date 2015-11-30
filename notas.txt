@@ -1,0 +1,6 @@
+name == nombre del repositorio donde va a estar el proyecto
+require == aqui se escriben los paquetes de los cuales depende mi aplicacion
+autoload == se describen las cargas automaticas o clases que se cargaran automaticamente
+
+PAGINA DONDE HAY MILES DE PAQUETES PARA PHP:
+https://packagist.org/
