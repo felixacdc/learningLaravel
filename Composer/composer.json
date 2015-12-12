@@ -1,0 +1,22 @@
+{
+	"name":"sileence/composer-example",
+	"description":"Ejemplo de uso de composer",
+	"type":"project",
+	"authors":[
+		{
+			"name":"Pablo Mendez",
+			"email":"pfmata01@gmail.com",
+			"homepage":"http://duilio.me",
+			"role":"teacher"
+		}
+	],
+	"require":{
+		"php":">=5.3.0",
+		"dompdf/dompdf": "dev-master"
+	},
+	"autoload":{
+		"psr-4":{
+			"Course\\":"Course/" //se utiliza para auto cargar las clases que estan en la carpeta Course
+		}
+	}
+}

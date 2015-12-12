@@ -1,0 +1,6 @@
+comando para instalar composer en un proyecto:
+composer install
+
+comando para descargar dompdf (sirve para generar pdf desde php):
+composer require dompdf/dompdf dev-master
+

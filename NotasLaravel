@@ -1,0 +1,9 @@
+============ Para descargar e instalar los paquetes configurados en el fichero 
+composer.json de la aplicación, usa el comando: ===========================
+composer install
+
+=================Lista las máquinas existentes ================
+vagrant global-status
+
+================= Copia el ID de Homestead y correr el comando ================
+vagrant provision ID
