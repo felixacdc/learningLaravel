@@ -12,3 +12,9 @@ vagrant provision ID
 Cambiar el namespace del proyecto:
 comando: php artisan app:name <NuevoNombreDelNamespace>
 
+Ejecutar las migraciones:
+comando: php artisan migrate
+
+Encriptar contraseña:
+Comando: \Hash::make('<IngresarContraseña>')
+Ejemplo: 'password' => \Hash::make('secret')

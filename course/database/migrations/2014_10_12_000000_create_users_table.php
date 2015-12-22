@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
 			$table->string('email')->unique();
 			$table->string('password', 60);
 			$table->rememberToken();
-			$table->timestamps();
+			$table->nullableTimestamps(); /*Crea los campos created_at y updated_at que guarda una bitacora de cuando fue creado y modificado el registro*/
 		});
 	}
 
