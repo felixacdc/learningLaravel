@@ -15,6 +15,16 @@ comando: php artisan app:name <NuevoNombreDelNamespace>
 Ejecutar las migraciones:
 comando: php artisan migrate
 
+Deshace las migraciones:
+comando: php artisan migrate:rollback
+
+Crear una nueva migracion:
+comando: php artisan make:migration <NombreDeMigracion>
+
+Crear una nueva migracion definiendo el nombre de la tabla:
+php artisan make:migration <NombreDeLaMigracion> --create="<NombreDeLaTabla>"
+
+
 Encriptar contraseña:
 Comando: \Hash::make('<IngresarContraseña>')
 Ejemplo: 'password' => \Hash::make('secret')
