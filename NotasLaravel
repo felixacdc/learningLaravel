@@ -1,4 +1,4 @@
-============ Para descargar e instalar los paquetes configurados en el fichero 
+﻿============ Para descargar e instalar los paquetes configurados en el fichero 
 composer.json de la aplicación, usa el comando: ===========================
 composer install
 
@@ -24,6 +24,11 @@ comando: php artisan make:migration <NombreDeMigracion>
 Crear una nueva migracion definiendo el nombre de la tabla:
 php artisan make:migration <NombreDeLaMigracion> --create="<NombreDeLaTabla>"
 
+Ejecutar los seeders:
+comando: php artisan db:seed
+
+Para re ejecutar tus migraciones y seeders:
+php artisan migrate:refresh --seed
 
 Encriptar contraseña:
 Comando: \Hash::make('<IngresarContraseña>')
