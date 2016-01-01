@@ -30,6 +30,10 @@ comando: php artisan db:seed
 Para re ejecutar tus migraciones y seeders:
 php artisan migrate:refresh --seed
 
+Para crear un controlador:
+comando: php artisan make:controller <NombreDelControlador>
+
 Encriptar contraseña:
 Comando: \Hash::make('<IngresarContraseña>')
 Ejemplo: 'password' => \Hash::make('secret')
+

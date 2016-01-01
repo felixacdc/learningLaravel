@@ -30,3 +30,13 @@ Route::get('example', function () {
     return view('examples.template', compact('user'));
 
 });
+
+/**
+ * Definir Controlador tipo resource:
+ * Evita conflictos entre rutas con el mismo nombre para diferentes usuarios
+ */
+
+Route::group(['prefix' => 'admin', 'namespace' => '\Admin'], function () {
+    Route::resource('users', 'UsersController');
+});
+
