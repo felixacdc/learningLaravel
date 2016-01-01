@@ -5,8 +5,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
+	
+	<!-- incluir la etiqueta link con el helper Forms&HTML hay que instalarlo, https://laravelcollective.com/docs/5.2/html -->
+	<!-- Para que laravel reconozca la etiqueta se tiene que colocar los signos !! -->
+	{!! Html::style('/css/app.css') !!}
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+	<!-- la funcion asset coloca la ruta completa del archivo en este caso http://course.app/css/app.css --> 
+	<!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet"> -->
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
