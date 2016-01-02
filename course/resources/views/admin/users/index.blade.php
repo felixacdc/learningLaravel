@@ -8,6 +8,11 @@
                 <div class="panel-heading">Users</div>
 
                 <div class="panel-body">
+                    <p>
+                        <a class="btn btn-info" href="{{ route('admin.users.create') }}" role="button">
+                            Nuevo Usuario
+                        </a>
+                    </p>
                     <p>There are {{ $users->lastPage() }} pages, Total records: {{ $users->total() }}, Actual Page: {{ $users->currentPage() }} </p>
                     <table class="table table-striped">
                         <tr>

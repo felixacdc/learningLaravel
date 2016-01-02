@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class UsersController extends Controller {
 
+	//Recivir datos por medio de Inyeccion de dependencias
+	// protected $request;
+
+	// public function __construct(Request $request)
+	// {
+	// 	$this->request = $request;
+	// }
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -27,7 +35,7 @@ class UsersController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('admin.users.create');
 	}
 
 	/**
@@ -35,9 +43,14 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		// dd($this->request->all());
+
+		$user = new User($request->all());
+		$user->save();
+
+		return \Redirect::route('admin.users.index');
 	}
 
 	/**
