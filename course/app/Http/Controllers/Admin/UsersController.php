@@ -5,7 +5,9 @@ use course\Http\Controllers\Controller;
 
 use course\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Validator;
+use course\Http\Requests\CreateUserRequest;
 class UsersController extends Controller {
 
 	//Recivir datos por medio de Inyeccion de dependencias
@@ -43,9 +45,37 @@ class UsersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store(CreateUserRequest $request)
 	{
 		// dd($this->request->all());
+
+		//primera forma de validacion utilizando Validator::make
+		// $data = contine los datos a validar
+		// $rules = contine las reglas de validacion
+
+		// $data = $this->request->all();
+
+		// $rules = array(
+		// 	'first_name' => 'required', 
+		// 	'last_name' => 'required', 
+		// 	'email' => 'required', 
+		// 	'password' => 'required', 
+		// 	'type' => 'required'
+		// );
+
+		// Segunda forma de validar
+		// $this->validate($this->request, $rules);
+
+		// Primera forma de validar
+		// $v = \Validator::make($data, $rules);
+
+		// if ($v->fails()) {
+			
+		// 	return redirect()->back()
+		// 		->withErrors($v->errors())
+		// 		->withInput($this->request->except('password'));
+
+		// }
 
 		$user = new User($this->request->all());
 		$user->save();

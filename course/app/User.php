@@ -23,7 +23,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	//colocar las columnas o campos que queremos gravar
-	protected $fillable = ['first_name', 'last_name', 'name', 'email', 'password', 'type'];
+	protected $fillable = ['first_name', 'last_name', 'email', 'password', 'type'];
 
 	/**
 	 * The attributes excluded from the model's JSON form.
