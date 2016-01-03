@@ -11,10 +11,10 @@ class UsersController extends Controller {
 	//Recivir datos por medio de Inyeccion de dependencias
 	// protected $request;
 
-	// public function __construct(Request $request)
-	// {
-	// 	$this->request = $request;
-	// }
+	public function __construct(Request $request)
+	{
+		$this->request = $request;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -47,7 +47,7 @@ class UsersController extends Controller {
 	{
 		// dd($this->request->all());
 
-		$user = new User($request->all());
+		$user = new User($this->request->all());
 		$user->save();
 
 		return \Redirect::route('admin.users.index');
@@ -72,7 +72,10 @@ class UsersController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		// Cargar el usuario con anterioridad, con la funcion findOrFail cargamos un solo usuario y si no es encontrado despliega un error 404
+		$user = User::findOrFail($id);
+
+		return view('admin.users.edit', compact('user'));
 	}
 
 	/**
@@ -83,7 +86,12 @@ class UsersController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$user = User::findOrFail($id);
+
+		$user->fill($this->request->all());
+		$user->save();
+
+		return \Redirect::back();
 	}
 
 	/**

@@ -14,28 +14,9 @@
                         </a>
                     </p>
                     <p>There are {{ $users->lastPage() }} pages, Total records: {{ $users->total() }}, Actual Page: {{ $users->currentPage() }} </p>
-                    <table class="table table-striped">
-                        <tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Type</th>
-                            <th>Actions</th>
-                        </tr>
+                    
+                    @include('admin.users.partials.table')
 
-                        @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->full_name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->type }}</td>
-                            <td>
-                                <a href="">Edit</a>
-                                <a href="">Remove</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </table>
                     <!-- Agregar paginacion -->
                     {!! $users->render() !!}
                 </div>
