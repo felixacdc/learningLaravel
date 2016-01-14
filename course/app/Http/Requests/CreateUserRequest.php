@@ -26,7 +26,7 @@ class CreateUserRequest extends Request {
 			'last_name' => 'required', 
 			'email' => 'required|unique:users,email', 
 			'password' => 'required', 
-			'type' => 'required'
+			'type' => 'required|in:user,admin'
 		];
 	}
 

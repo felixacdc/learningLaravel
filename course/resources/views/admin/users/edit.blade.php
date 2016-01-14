@@ -8,6 +8,9 @@
                 <div class="panel-heading">Edit User {{ $user->first_name }}</div>
 
                 <div class="panel-body">
+
+                     @include('admin.partials.messages')
+                     
                     <!-- el Form::model me permite atar un modelo a un formulario en este caso $user es el modelo -->
                     {!! Form::model($user, ['route' => ['admin.users.update', $user->id], 'method' => 'PUT']) !!}
                         

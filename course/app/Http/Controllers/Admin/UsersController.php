@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use course\Http\Requests\CreateUserRequest;
+use course\Http\Requests\EditUserRequest;
+
 class UsersController extends Controller {
 
 	//Recivir datos por medio de Inyeccion de dependencias
@@ -114,7 +116,7 @@ class UsersController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update(EditUserRequest $request, $id)
 	{
 		$user = User::findOrFail($id);
 
