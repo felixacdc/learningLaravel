@@ -9,6 +9,7 @@ use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use course\Http\Requests\CreateUserRequest;
 use course\Http\Requests\EditUserRequest;
+use Illuminate\Support\Facades\Session;
 
 class UsersController extends Controller {
 
@@ -134,7 +135,12 @@ class UsersController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+
+		User::destroy($id);
+
+		Session::flash('message', 'El Registro fue eliminado');
+		
+		return \Redirect::route('admin.users.index');
 	}
 
 }
