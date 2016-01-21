@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use course\Http\Requests\CreateUserRequest;
 use course\Http\Requests\EditUserRequest;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Routing\Route;
 
 class UsersController extends Controller {
 
@@ -19,6 +20,14 @@ class UsersController extends Controller {
 	public function __construct(Request $request)
 	{
 		$this->request = $request;
+
+		// Aplicar principio DRY
+		$this->beforeFilter('@findUser', ['only' => ['show', 'edit', 'update', 'destroy']]);
+	}
+
+	public function findUser(Route $route)
+	{
+		$this->user = User::findOrFail($route->getParameter('users'));
 	}
 
 	/**
@@ -108,7 +117,7 @@ class UsersController extends Controller {
 		// Cargar el usuario con anterioridad, con la funcion findOrFail cargamos un solo usuario y si no es encontrado despliega un error 404
 		$user = User::findOrFail($id);
 
-		return view('admin.users.edit', compact('user'));
+		return view('admin.users.edit')->with('user', $this->user);
 	}
 
 	/**
@@ -119,10 +128,13 @@ class UsersController extends Controller {
 	 */
 	public function update(EditUserRequest $request, $id)
 	{
-		$user = User::findOrFail($id);
+		//$user = User::findOrFail($id);
 
-		$user->fill($this->request->all());
-		$user->save();
+		//$user->fill($this->request->all());
+		//$user->save();
+
+		$this->user->fill($this->request->all());
+		$this->user->save();
 
 		return \Redirect::back();
 	}
@@ -136,9 +148,11 @@ class UsersController extends Controller {
 	public function destroy($id)
 	{
 
-		User::destroy($id);
+		//User::destroy($id);
 
-		Session::flash('message', 'El Registro fue eliminado');
+		$this->user->delete();
+
+		Session::flash('message', $this->user->full_name . ' fue eliminado/a');
 		
 		return \Redirect::route('admin.users.index');
 	}
