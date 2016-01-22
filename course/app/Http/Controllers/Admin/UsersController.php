@@ -150,9 +150,24 @@ class UsersController extends Controller {
 
 		//User::destroy($id);
 
+
 		$this->user->delete();
 
-		Session::flash('message', $this->user->full_name . ' fue eliminado/a');
+		$message = $this->user->full_name . ' fue eliminado/a';
+
+		if ($this->request->ajax()) {
+			//return $message; enviar respuesta en formado XML
+			/**
+			 * envio de respuesta por json
+			 */
+
+			return response()->json([
+				'id'      => $this->user->id,
+				'message' => $message
+			]);
+		}
+
+		Session::flash('message', $message);
 		
 		return \Redirect::route('admin.users.index');
 	}
