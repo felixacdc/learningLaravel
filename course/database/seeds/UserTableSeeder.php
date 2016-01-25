@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
 	{
 		$faker = Faker::create();
 
-		for ($i=0; $i < 30; $i++) {
+		for ($i=0; $i < 90; $i++) {
 
 			//permite optener el id generado por el insert
 			$id = \DB::table('users')->insertGetId(array(
@@ -22,7 +22,7 @@ class UserTableSeeder extends Seeder
 				'last_name' => $faker->lastName,
 				'email' => $faker->unique()->email,
 				'password' => \Hash::make('123456'),
-				'type' => 'user'
+				'type' => $faker->randomElement(['user', 'editor', 'contributor', 'subscriber'])
 			));
 
 			\DB::table('user_profiles')->insert(array (

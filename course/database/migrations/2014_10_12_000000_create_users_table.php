@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration {
 			$table->string('last_name');
 			$table->string('email')->unique();
 			$table->string('password', 60);
-			$table->enum('type', ['admin', 'user']);
+			$table->enum('type', ['admin', 'user', 'editor', 'contributor', 'subscriber']);
 			$table->rememberToken();
 			$table->nullableTimestamps(); /*Crea los campos created_at y updated_at que guarda una bitacora de cuando fue creado y modificado el registro*/
 		});

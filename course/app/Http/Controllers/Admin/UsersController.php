@@ -37,7 +37,7 @@ class UsersController extends Controller {
 	 */
 	public function index()
 	{
-		$users = User::name($this->request->get('name'))->paginate();
+		$users = User::filterAndPaginate($this->request->get('name'), $this->request->get('type'));
 
 		return view('admin.users.index', compact('users'));
 	}
