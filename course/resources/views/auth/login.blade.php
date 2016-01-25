@@ -7,6 +7,12 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Login</div>
 				<div class="panel-body">
+					@if (Session::has('message'))
+
+                    <p class="alert alert-danger">{{ Session::get('message') }}</p>
+
+                	@endif
+                	
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							Por favor corrige los siguientes errores.<br><br>

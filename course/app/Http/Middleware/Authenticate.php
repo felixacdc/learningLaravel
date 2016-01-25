@@ -2,6 +2,7 @@
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Support\Facades\Session;
 
 class Authenticate {
 
@@ -40,6 +41,7 @@ class Authenticate {
 			}
 			else
 			{
+				Session::flash('message', 'Debes iniciar secion');
 				return redirect()->guest('auth/login');
 			}
 		}
