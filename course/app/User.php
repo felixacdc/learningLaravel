@@ -74,4 +74,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		}
 	}
 
+	public function is($type)
+	{
+		return $this->type === $type;
+	}
+
+	public function isAdmin()
+	{
+		return $this->type === 'admin';
+	}
+
 }

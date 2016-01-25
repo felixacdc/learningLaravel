@@ -36,7 +36,7 @@ Route::get('example', function () {
  * Evita conflictos entre rutas con el mismo nombre para diferentes usuarios
  */
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => '\Admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'is_admin'], 'namespace' => '\Admin'], function () {
     Route::resource('users', 'UsersController');
 });
 
