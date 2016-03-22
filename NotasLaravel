@@ -8,6 +8,9 @@ vagrant global-status
 ================= Copia el ID de Homestead y correr el comando ================
 vagrant provision ID
 
+================= Generar una clave de proyecto en el .env ================
+php artisan key:generate
+
 =================== COMANDOS A UTILIZAR EN LARAVEL ====================
 Cambiar el namespace del proyecto:
 comando: php artisan app:name <NuevoNombreDelNamespace>
