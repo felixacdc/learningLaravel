@@ -46,4 +46,5 @@ Ejemplo: 'password' => \Hash::make('secret')
 Crear un Form Request Validation:
 php artisan make:request <NombreDelRequest>
 
-
+Crear un Middleware:
+php artisan make:middleware <Nombre>
