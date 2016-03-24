@@ -30,6 +30,11 @@ php artisan make:migration <NombreDeLaMigracion> --create="<NombreDeLaTabla>"
 Ejecutar los seeders:
 comando: php artisan db:seed
 
+**** cuando se crea un seeder hay que agregarlo en DatabaseSeeder
+
+Ejecutar un seeder:
+php artisan db:seed --class=UsersTableSeeder
+
 Para re ejecutar tus migraciones y seeders:
 php artisan migrate:refresh --seed
 
