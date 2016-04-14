@@ -30,6 +30,9 @@ comando: php artisan make:migration <NombreDeMigracion>
 Crear una nueva migracion definiendo el nombre de la tabla:
 php artisan make:migration <NombreDeLaMigracion> --create="<NombreDeLaTabla>"
 
+Crear un Seeder:
+php artisan make:seed <NombreDelSeeder>
+
 Ejecutar los seeders:
 comando: php artisan db:seed
 
@@ -43,6 +46,9 @@ php artisan migrate:refresh --seed
 
 Para crear un controlador:
 comando: php artisan make:controller <NombreDelControlador>
+
+Crear modelo:
+php artisan make:model <NombreDelModelo>
 
 Crear un form request (validacion):
 php artisan make:request <nombreDeLaClase>
